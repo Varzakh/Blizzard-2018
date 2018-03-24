@@ -1,0 +1,13 @@
+package org.usfirst.frc.team188.automodes;
+
+import edu.wpi.first.wpilibj.command.CommandGroup;
+
+/**
+ *
+ */
+public class RightSideLeftScaleAuto extends CommandGroup {
+
+    public RightSideLeftScaleAuto() {
+        addSequential(new ErrorAuto("autonomous mode RightSideLeftScaleAuto not completed."));
+    }
+}
