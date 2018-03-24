@@ -175,8 +175,6 @@ public class Elevator extends Subsystem {
 				disablePID(elevatorDownSmallPID);
 				disablePID(elevatorDownBigPID);
 				
-				if(lastPressed == 3) Robot.intake.pivot('u');
-				
 			}
 			else {
 				
@@ -208,8 +206,6 @@ public class Elevator extends Subsystem {
 			elevator1.set(ControlMode.PercentOutput, Robot.m_oi.stick2.getRawAxis(3)*power);
 			elevator2.set(ControlMode.PercentOutput, Robot.m_oi.stick2.getRawAxis(3)*power);
 			elevator3.set(ControlMode.PercentOutput, Robot.m_oi.stick2.getRawAxis(3)*power);
-			
-			System.out.println("WORKING");
 		}
 	}
 	

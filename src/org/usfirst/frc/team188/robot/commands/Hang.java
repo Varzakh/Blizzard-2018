@@ -1,6 +1,6 @@
 package org.usfirst.frc.team188.robot.commands;
 
-import org.usfirst.frc.team188.controlcommands.MoveElevator;
+import org.usfirst.frc.team188.robot.controlcommands.MoveElevator;
 
 import edu.wpi.first.wpilibj.command.CommandGroup;
 import edu.wpi.first.wpilibj.command.WaitCommand;

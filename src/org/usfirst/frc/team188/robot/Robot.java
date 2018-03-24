@@ -12,9 +12,9 @@ import edu.wpi.first.wpilibj.command.CommandGroup;
 import edu.wpi.first.wpilibj.command.Scheduler;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 
-import org.usfirst.frc.team188.automodes.ScaleAutoInitializer;
-import org.usfirst.frc.team188.automodes.SwitchAutoInitializer;
-import org.usfirst.frc.team188.automodes.TestingAuto;
+import org.usfirst.frc.team188.robot.automodes.ScaleAutoInitializer;
+import org.usfirst.frc.team188.robot.automodes.SwitchAutoInitializer;
+import org.usfirst.frc.team188.robot.automodes.TestingAuto;
 import org.usfirst.frc.team188.robot.commands.TeleopCommandGroup;
 import org.usfirst.frc.team188.robot.subsystems.Base;
 import org.usfirst.frc.team188.robot.subsystems.Elevator;

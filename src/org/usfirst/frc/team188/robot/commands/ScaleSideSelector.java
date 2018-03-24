@@ -1,8 +1,8 @@
 package org.usfirst.frc.team188.robot.commands;
 
-import org.usfirst.frc.team188.automodes.ErrorAuto;
-import org.usfirst.frc.team188.automodes.LeftSideLeftScaleAuto;
-import org.usfirst.frc.team188.automodes.RightSideRightScaleAuto;
+import org.usfirst.frc.team188.robot.automodes.ErrorAuto;
+import org.usfirst.frc.team188.robot.automodes.LeftSideLeftScaleAuto;
+import org.usfirst.frc.team188.robot.automodes.RightSideRightScaleAuto;
 
 import edu.wpi.first.wpilibj.DriverStation;
 import edu.wpi.first.wpilibj.command.Command;
