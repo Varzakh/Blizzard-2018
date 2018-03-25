@@ -67,6 +67,7 @@ public class Elevator extends Subsystem {
 	}
 	
 	public boolean getLimitSwitch() {
+//		return false;
 		return lightSwitch.get();
 	}
 	

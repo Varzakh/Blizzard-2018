@@ -35,7 +35,7 @@ public class DriverCommand extends Command {
     	
 //    	Intake Controls
     	Robot.intake.pivotIntake();
-    	Robot.intake.moveIntake();    	
+    	Robot.intake.moveIntake();   	
    
 //    	Elevator Controls
     	Robot.elevator.hang();    	

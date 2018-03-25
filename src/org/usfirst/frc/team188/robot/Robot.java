@@ -111,6 +111,7 @@ public class Robot extends TimedRobot {
 		SmartDashboard.putNumber("Elevator Encoder", Robot.elevator.getElevatorEnc());
 		SmartDashboard.putNumber("Base Enc", Robot.base.getEnc());
 		SmartDashboard.putNumber("Gyro", Robot.base.getGyro());
+		SmartDashboard.putBoolean("Elevator Light Sensor", Robot.elevator.getLimitSwitch());
 		
 	}
 
@@ -148,6 +149,7 @@ public class Robot extends TimedRobot {
 	@Override
 	public void teleopPeriodic() {
 		Scheduler.getInstance().run();
+		SmartDashboard.putBoolean("Elevator Light Sensor", Robot.elevator.getLimitSwitch());
 	}
 
 

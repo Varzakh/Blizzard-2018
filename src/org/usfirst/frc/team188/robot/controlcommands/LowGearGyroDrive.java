@@ -51,7 +51,6 @@ public class LowGearGyroDrive extends Command {
     
     // Called just before this Command runs the first time
     protected void initialize() {
-    	Robot.base.resetEnc();
     	Robot.base.encPwr = 0;
     	Robot.base.gyroPwr = 0;
     	baseEncPID.enable();

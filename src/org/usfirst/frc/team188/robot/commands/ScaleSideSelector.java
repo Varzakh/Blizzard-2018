@@ -21,12 +21,12 @@ public class ScaleSideSelector extends Command {
     }
 
     protected void initialize() {
-    	if(DriverStation.getInstance().getGameSpecificMessage().charAt(1) == 'L')
-    		scaleAuto = new LeftSideLeftScaleAuto();
-    	else if(DriverStation.getInstance().getGameSpecificMessage().charAt(1) == 'R') 
-    		scaleAuto = new RightSideRightScaleAuto();
-    	else scaleAuto = new ErrorAuto("ScaleSideSelector could not select a side.");
-    	
+//    	if(DriverStation.getInstance().getGameSpecificMessage().charAt(1) == 'L')
+//    		scaleAuto = new LeftSideLeftScaleAuto();
+//    	else if(DriverStation.getInstance().getGameSpecificMessage().charAt(1) == 'R') 
+//    		scaleAuto = new RightSideRightScaleAuto();
+//    	else scaleAuto = new ErrorAuto("ScaleSideSelector could not select a side.");
+    	scaleAuto = new LeftSideLeftScaleAuto();
     	scaleAuto.start();
     }
 

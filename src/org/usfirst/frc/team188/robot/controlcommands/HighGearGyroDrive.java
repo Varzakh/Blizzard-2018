@@ -35,7 +35,6 @@ public class HighGearGyroDrive extends Command {
     }
     
     protected void initialize() {
-    	Robot.base.resetEnc();
     	Robot.base.encPwr = 0;
     	Robot.base.gyroPwr = 0;
     	baseEncPID.enable();

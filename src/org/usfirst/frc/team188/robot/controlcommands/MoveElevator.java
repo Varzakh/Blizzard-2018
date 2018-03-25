@@ -3,6 +3,7 @@ package org.usfirst.frc.team188.robot.controlcommands;
 import org.usfirst.frc.team188.robot.Robot;
 import org.usfirst.frc.team188.robot.subsystems.ElevatorPID;
 
+import edu.wpi.first.wpilibj.DriverStation;
 import edu.wpi.first.wpilibj.command.Command;
 
 /**
@@ -34,6 +35,7 @@ public class MoveElevator extends Command {
 
     // Make this return true when this Command no longer needs to run execute()
     protected boolean isFinished() {
+    	if (DriverStation.getInstance().isAutonomous()) return false;
     	if(wasHanging && !Robot.m_oi.hang.get()) return true;
     	wasHanging = Robot.m_oi.hang.get();
     	if(Robot.elevator.getElevatorInputActive()) return true;

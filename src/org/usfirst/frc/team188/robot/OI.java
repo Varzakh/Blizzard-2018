@@ -28,14 +28,13 @@ public class OI {
 	public Button shifterButton2 = new JoystickButton(stick,5);
 	
 	//Stick 2
-	public Button intakeButton = new JoystickButton(stick2, 5);
-	public Button outtakeButton = new JoystickButton(stick2, 6);
 	public Button pivotUp = new JoystickButton(stick2, 10);
 	public Button pivotDown = new JoystickButton(stick2, 9);
 	public Button pivotIn = new JoystickButton(stick2, 7);
 	public Button pivotOut = new JoystickButton(stick2, 8);
 	public Button winchButton = new JoystickButton(stick2, 12);
 	public Button hang = new JoystickButton(stick2, 10);
+	public Button slowOuttake = new JoystickButton(stick2, 5);
 	
 	public Button[] elevatorPresets = 
 			{new JoystickButton(stick2,1), 
