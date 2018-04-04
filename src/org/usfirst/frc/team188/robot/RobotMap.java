@@ -22,7 +22,7 @@ public class RobotMap {
 	//Base Motors
 	public static int frontLeft = 2;
 	public static int backLeft = 3;
-	public static int frontRight = 4;
+	public static int frontRight = 5;
 	public static int backRight = 11; 
 
 	//Base Digital Sensors

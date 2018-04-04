@@ -21,7 +21,7 @@ public class TuneBaseGyroPID extends Command {
     // Called just before this Command runs the first time
     protected void initialize() {
     	baseGyroPID = new BaseGyroPID(SmartDashboard.getNumber("Base Gyro P", 0.0), SmartDashboard.getNumber("Base Gyro I", 0.0), 
-    			SmartDashboard.getNumber("Base Gyro D", 0.0), SmartDashboard.getNumber("Base Gyro Setpoint", 0.0), 0.8);
+    			SmartDashboard.getNumber("Base Gyro D", 0.0), SmartDashboard.getNumber("Base Gyro Setpoint", 0.0), 0.5);
     	baseGyroPID.enable();
     }
 
@@ -33,7 +33,7 @@ public class TuneBaseGyroPID extends Command {
     			SmartDashboard.getNumber("Base Gyro Setpoint", 0.0) != baseGyroPID.getPIDController().getSetpoint() ){
     		baseGyroPID.disable();
     		baseGyroPID = new BaseGyroPID(SmartDashboard.getNumber("Base Gyro P", 0.0), SmartDashboard.getNumber("Base Gyro I", 0.0), 
-        			SmartDashboard.getNumber("Base Gyro D", 0.0), SmartDashboard.getNumber("Base Gyro Setpoint", 0.0), 0.8);
+        			SmartDashboard.getNumber("Base Gyro D", 0.0), SmartDashboard.getNumber("Base Gyro Setpoint", 0.0), 0.5);
     		baseGyroPID.enable();
     	}
     	SmartDashboard.putNumber("Gyro", Robot.base.getGyro());

@@ -12,7 +12,7 @@ import edu.wpi.first.wpilibj.command.Command;
  */
 public class HighGearGyroDrive extends Command {
 	
-	
+	int endpoint;
 	double power;
 	
 	BaseEncPID baseEncPID;
@@ -32,6 +32,15 @@ public class HighGearGyroDrive extends Command {
     	this.power = 0.8;
     	baseEncPID = new BaseEncPID(pEnc,iEnc,dEnc,encSetpoint,this.power,true);
     	baseGyroPID = new BaseGyroPID(pGyro,iGyro,dGyro,gyroSetpoint,this.power,true);
+    	this.endpoint = 0;
+    }
+    
+    public HighGearGyroDrive(int encSetpoint, double gyroSetpoint, int endpoint) {
+    	requires(Robot.base);
+    	this.power = 0.8;
+    	baseEncPID = new BaseEncPID(pEnc,iEnc,dEnc,encSetpoint,this.power,true);
+    	baseGyroPID = new BaseGyroPID(pGyro,iGyro,dGyro,gyroSetpoint,this.power,true);
+    	this.endpoint = endpoint;
     }
     
     protected void initialize() {
@@ -50,6 +59,7 @@ public class HighGearGyroDrive extends Command {
     }
 
     protected boolean isFinished() {
+    	if (endpoint != 0 && Math.abs(Robot.base.getEnc()) >= Math.abs(endpoint)) return true;
         return baseGyroPID.onTarget() && baseEncPID.onTarget();
     }
 

@@ -47,6 +47,7 @@ public class LeftSwitchAuto extends CommandGroup {
 		addSequential(new ResetEnc());
 		addSequential(new LowGearGyroDrive(91000, -35));
 		addSequential(new Turn(0));
+		
 //		addSequential(new ResetEnc());
 //		addSequential(new WaitCommand(0.5));
 //		addSequential(new LowGearGyroDrive(35000, 0), 1.0);

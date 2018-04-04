@@ -12,6 +12,7 @@ import edu.wpi.first.wpilibj.command.CommandGroup;
 import edu.wpi.first.wpilibj.command.Scheduler;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 
+import org.usfirst.frc.team188.robot.automodes.ElimsAutoInitializer;
 import org.usfirst.frc.team188.robot.automodes.ScaleAutoInitializer;
 import org.usfirst.frc.team188.robot.automodes.SwitchAutoInitializer;
 import org.usfirst.frc.team188.robot.automodes.TestingAuto;
@@ -51,6 +52,7 @@ public class Robot extends TimedRobot {
 		
 		teleopCommandGroup = new TeleopCommandGroup();
 		autos = new String[] {
+			"Elims Auto",
 			"Switch Auto",
 			"Left Scale Auto",
 			"Right Scale Auto",
@@ -72,29 +74,34 @@ public class Robot extends TimedRobot {
 		if (autoCommandGroup != null && autoCommandGroup.isRunning())
 			autoCommandGroup.cancel();
 		autoCommandGroups = new CommandGroup[] {
+			new ElimsAutoInitializer(),
 			new SwitchAutoInitializer(),
 			new ScaleAutoInitializer('l'),
 			new ScaleAutoInitializer('r'),
+			new ElimsAutoInitializer(),
 			new TestingAuto()
 		};
 		
 		base.resetEnc();
 		
-//		SmartDashboard.putNumber("Elevator P", 0.0);
-//    	SmartDashboard.putNumber("Elevator I", 0.0);
-//    	SmartDashboard.putNumber("Elevator D", 0.0);
-//    	SmartDashboard.putNumber("Elevator Setpoint", 0.0);
+		SmartDashboard.putNumber("Base Enc P", 0.0);
+    	SmartDashboard.putNumber("Base Enc I", 0.0);
+    	SmartDashboard.putNumber("Base Enc D", 0.0);
+    	SmartDashboard.putNumber("Base Enc Setpoint", 0.0);
 	}
 
 	@Override
 	public void disabledPeriodic() {
 		Scheduler.getInstance().run();
 		
-		if (!prevChangeAuto && m_oi.stick.getRawButton(6) && selectedAuto < autos.length){
+		if (!prevChangeAuto && m_oi.stick.getRawButton(6)){
 			++selectedAuto;
-		} else if(!prevChangeAuto && m_oi.stick.getRawButton(5) && selectedAuto > 0){
+		} else if(!prevChangeAuto && m_oi.stick.getRawButton(5)){
 			--selectedAuto;
 		}
+		
+		if(selectedAuto >= autos.length) selectedAuto = 0;
+		else if(selectedAuto < 0) selectedAuto = autos.length - 1;
 		
 		prevChangeAuto = m_oi.stick.getRawButton(5) || m_oi.stick.getRawButton(6);
 		SmartDashboard.putString("Auto Mode", autos[selectedAuto]);

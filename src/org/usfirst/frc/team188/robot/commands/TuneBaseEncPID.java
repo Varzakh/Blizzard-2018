@@ -14,7 +14,7 @@ public class TuneBaseEncPID extends Command {
 	
 	PIDSubsystem baseEncPID;
 	double maxEnc = 0;
-	double power = 0.8;
+	double power = 0.5;
 
     public TuneBaseEncPID() {
     	requires(Robot.base);

@@ -17,11 +17,20 @@ public class Turn extends Command {
 	double iGyro = Constants.gyroTurnPID[1];
 	double dGyro = Constants.gyroTurnPID[2];
 	
+	int onTargetCount;
+	
 	int count;
 
     public Turn(double angle) {
     	requires(Robot.base);
     	baseGyroPID = new BaseGyroPID(pGyro,iGyro,dGyro,angle,0.0);
+    	this.onTargetCount = 18;
+    }
+    
+    public Turn(double angle, int onTargetCount) {
+    	requires(Robot.base);
+    	baseGyroPID = new BaseGyroPID(pGyro,iGyro,dGyro,angle,0.0);
+    	this.onTargetCount = onTargetCount;
     }
 
     // Called just before this Command runs the first time
@@ -37,7 +46,7 @@ public class Turn extends Command {
 
     // Make this return true when this Command no longer needs to run execute()
     protected boolean isFinished() {
-        return count > 18;
+        return count > onTargetCount;
     }
 
     // Called once after isFinished returns true
