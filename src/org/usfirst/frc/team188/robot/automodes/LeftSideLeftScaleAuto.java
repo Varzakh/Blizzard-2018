@@ -12,6 +12,7 @@ import org.usfirst.frc.team188.robot.controlcommands.PivotIntake;
 import org.usfirst.frc.team188.robot.controlcommands.ShiftGears;
 import org.usfirst.frc.team188.robot.controlcommands.Turn;
 
+import edu.wpi.first.wpilibj.command.Command;
 import edu.wpi.first.wpilibj.command.CommandGroup;
 import edu.wpi.first.wpilibj.command.WaitCommand;
 
@@ -30,6 +31,7 @@ public class LeftSideLeftScaleAuto extends CommandGroup {
 	    addSequential(new Turn(43));  //turn towards scale
 	    addParallel(new MoveElevator(3));  //elevator to scale position
 	    addSequential(new WaitCommand(0.2));
+//	    addSequential(new DelayedCommand(0.3,new Command[]{new MoveElevator(3),new WaitCommand(0.2)}));
 	    addSequential(new MoveIntake(0.4, 0.6)); //SCORE FIRST CUBE
 	    addParallel(new MoveElevator(0));  //elevator down
 	    addParallel(new PivotIntake('u'));
@@ -37,9 +39,9 @@ public class LeftSideLeftScaleAuto extends CommandGroup {
 	    addParallel(new PivotIntake('d'));
 	    addSequential(new Turn(144));  //turn towards first switch cube
 	    addSequential(new ResetEnc());
-	    addParallel(new MoveIntake(-0.5, 4));  //run intake to pickup cube
+	    addParallel(new MoveIntake(-1, 4));  //run intake to pickup cube
 	    addSequential(new LowGearGyroDrive(66000, 144)); //33000
-	    addSequential(new MoveIntake(-1,0.5));
+	    addSequential(new MoveIntake(-1,0.2));
 	    addParallel(new MoveIntake(-1.0,2));
 	    addParallel(new MoveElevator(1));  //elevator up partway
 	    addSequential(new Turn(10));  //turn towards scale
@@ -56,13 +58,13 @@ public class LeftSideLeftScaleAuto extends CommandGroup {
 	    addSequential(new Turn(135));  //turn towards second switch cube
 	    
 	    addSequential(new ResetEnc());
-	    addParallel(new MoveIntake(-1.0, 3));
+	    addParallel(new MoveIntake(-1, 3));
 	    addSequential(new LowGearGyroDrive(34000, 135));  //move to second switch cube
-	    addParallel(new MoveIntake(-1.0, 2));
+	    addParallel(new MoveIntake(-1, 2));
 	    addParallel(new MoveElevator(1));
-	    addSequential(new Turn(-10));
+	    addSequential(new Turn(-7));
 	    addParallel(new MoveElevator(3));
-	    addSequential(new LowGearGyroDrive(25000, -10));
+	    addSequential(new LowGearGyroDrive(25000, -7));
 	    addSequential(new MoveIntake(0.4, 0.6));
 	    
     }

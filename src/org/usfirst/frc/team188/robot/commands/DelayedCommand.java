@@ -1,46 +1,27 @@
 package org.usfirst.frc.team188.robot.commands;
 
-import edu.wpi.first.wpilibj.Timer;
 import edu.wpi.first.wpilibj.command.Command;
+import edu.wpi.first.wpilibj.command.CommandGroup;
+import edu.wpi.first.wpilibj.command.WaitCommand;
 
 /**
  *
  */
-public class DelayedCommand extends Command {
-	
-	double time;
-	Command cmd;
-	Timer t;
+public class DelayedCommand extends CommandGroup {
 
-    public DelayedCommand(double time, Command cmd) {
-    	this.time = time;
-    	this.cmd = cmd;
+    public DelayedCommand(double t, Command c) {
+        addSequential(new WaitCommand(t));
+        addSequential(c);
     }
-
-    // Called just before this Command runs the first time
-    protected void initialize() {
-    	t = new Timer();
-    	t.start();
-    }
-
-    // Called repeatedly when this Command is scheduled to run
-    protected void execute() {
-    	if(t.get() > time && !cmd.isRunning()) cmd.start();
-    }
-
-    // Make this return true when this Command no longer needs to run execute()
-    protected boolean isFinished() {
-    	return cmd.isCompleted();
-    }
-
-    // Called once after isFinished returns true
-    protected void end() {
-    	cmd.cancel();
-    }
-
-    // Called when another command which requires one or more of the same
-    // subsystems is scheduled to run
-    protected void interrupted() {
-    	end();
+    
+    public DelayedCommand(double t, Command[] c) {
+        addSequential(new WaitCommand(t));
+        addSequential(new Print("WAIT DONE"));
+        for (int i = 0; i < c.length - 1; ++i) {
+        	addParallel(c[i]);
+        }
+        addSequential(new Print("PARALLELS DONE"));
+        addSequential(c[c.length-1]);
+        addSequential(new Print("SEQUENTIAL DONE"));
     }
 }
