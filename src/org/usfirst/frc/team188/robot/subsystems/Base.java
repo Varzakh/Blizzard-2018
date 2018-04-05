@@ -18,6 +18,8 @@ public class Base extends Subsystem {
 	
 	public static DoubleSolenoid shifter = RobotMap.baseShifter;
 	
+	int encOffset;
+	
 	double low = 1.0, high = 1.0, speed = low;
 	
 	//Motors
@@ -27,11 +29,13 @@ public class Base extends Subsystem {
 	public TalonSRX backRight = new TalonSRX(RobotMap.backRight);
 	
 	public void resetEnc() {
-		frontLeft.getSensorCollection().setQuadraturePosition(0, 0);
+//		frontLeft.getSensorCollection().setQuadraturePosition(0, 0);
+		encOffset += getEnc();
+		
 	}
 	
 	public int getEnc(){
-		return -frontLeft.getSensorCollection().getQuadraturePosition();
+		return -frontLeft.getSensorCollection().getQuadraturePosition() - encOffset;
 	}
 	
 	public double frontLeftVoltage(){
@@ -62,6 +66,7 @@ public class Base extends Subsystem {
     // here. Call these from Commands.
 
 	public Base() {
+		encOffset = 0;
 		frontLeft.configOpenloopRamp(0, 0);
 		frontRight.configOpenloopRamp(0, 0);
 		backLeft.configOpenloopRamp(0, 0);

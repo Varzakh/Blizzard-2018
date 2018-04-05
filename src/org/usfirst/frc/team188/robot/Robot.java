@@ -52,10 +52,10 @@ public class Robot extends TimedRobot {
 		
 		teleopCommandGroup = new TeleopCommandGroup();
 		autos = new String[] {
-			"Elims Auto",
 			"Switch Auto",
 			"Left Scale Auto",
 			"Right Scale Auto",
+			"Elims Auto",
 			"Test Auto"
 		};
 		
@@ -74,7 +74,6 @@ public class Robot extends TimedRobot {
 		if (autoCommandGroup != null && autoCommandGroup.isRunning())
 			autoCommandGroup.cancel();
 		autoCommandGroups = new CommandGroup[] {
-			new ElimsAutoInitializer(),
 			new SwitchAutoInitializer(),
 			new ScaleAutoInitializer('l'),
 			new ScaleAutoInitializer('r'),
