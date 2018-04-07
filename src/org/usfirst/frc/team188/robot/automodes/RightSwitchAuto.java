@@ -1,6 +1,7 @@
 package org.usfirst.frc.team188.robot.automodes;
 
 import org.usfirst.frc.team188.robot.commands.ResetEnc;
+import org.usfirst.frc.team188.robot.controlcommands.LowGearGyroArc;
 import org.usfirst.frc.team188.robot.controlcommands.LowGearGyroDrive;
 import org.usfirst.frc.team188.robot.controlcommands.MoveElevator;
 import org.usfirst.frc.team188.robot.controlcommands.MoveIntake;
@@ -38,11 +39,11 @@ public class RightSwitchAuto extends CommandGroup {
 		addSequential(new LowGearGyroDrive(-73000, 70));
 		addSequential(new Turn(0));
 		addSequential(new ResetEnc());
-		addParallel(new LowGearGyroDrive(45000, 0));
+		addParallel(new LowGearGyroArc(51000, 0));
 		addSequential(new MoveIntake(-1.0, 1.0));
 		addSequential(new ResetEnc());
 		addParallel(new MoveIntake(-1.0, 1.0));
-		addSequential(new LowGearGyroDrive(-32000, 0));
+		addSequential(new LowGearGyroDrive(-38000, 0));
 		addParallel(new MoveElevator(1));
 		addSequential(new Turn(90));
 		addSequential(new ResetEnc());

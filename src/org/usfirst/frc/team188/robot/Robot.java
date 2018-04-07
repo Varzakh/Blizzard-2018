@@ -85,6 +85,8 @@ public class Robot extends TimedRobot {
     	SmartDashboard.putNumber("Base Enc I", 0.0);
     	SmartDashboard.putNumber("Base Enc D", 0.0);
     	SmartDashboard.putNumber("Base Enc Setpoint", 0.0);
+    	
+    	System.out.println("Auto Mode: " + autos[selectedAuto]);
 	}
 
 	@Override
@@ -102,14 +104,18 @@ public class Robot extends TimedRobot {
 		
 		prevChangeAuto = m_oi.stick.getRawButton(5) || m_oi.stick.getRawButton(6);
 		SmartDashboard.putString("Auto Mode", autos[selectedAuto]);
+		if (prevChangeAuto)
+			System.out.println("Auto Mode: " + autos[selectedAuto]);
 		
 		if(Robot.m_oi.resetEncButton.get()){
 			Robot.elevator.enc.reset();
 			Robot.base.resetEnc();
+			System.out.println("Base and elevator encoders zeroed.");
 		}
 		
 		if(Robot.m_oi.resetGyroButton.get()){
 			Robot.base.resetGyro();
+			System.out.println("Gyro zeroed.");
 		}
 		
 		SmartDashboard.putNumber("Elevator Encoder", Robot.elevator.getElevatorEnc());

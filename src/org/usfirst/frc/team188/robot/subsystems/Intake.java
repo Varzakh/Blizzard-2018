@@ -45,6 +45,11 @@ public class Intake extends Subsystem {
 		intakeRight.set(ControlMode.PercentOutput, -power);
 	}
 	
+	public void drive(double leftPower,double rightPower) {
+		intakeLeft.set(ControlMode.PercentOutput, leftPower);
+		intakeRight.set(ControlMode.PercentOutput, -rightPower);
+	}
+	
 	public void pivot(char dir){
 		if (dir == 'u')
 			pivotPiston.set(Value.kForward);

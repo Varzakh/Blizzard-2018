@@ -26,7 +26,7 @@ public class LeftSideLeftScaleAuto extends CommandGroup {
     	addSequential(new ShiftGears('h'));  //shift to high
     	addParallel(new MoveElevator(2));
     	addParallel(new PivotIntake('d'));  //intake down
-	    addSequential(new HighGearGyroDrive(258000, 0)); //215000, high gear
+	    addSequential(new HighGearGyroDrive(249000, 0)); //258000, high gear
 	    addSequential(new ShiftGears('l'));  //shift to low
 //	    addParallel(new DelayedCommand(0.3,new Command[]{new MoveElevator(3),new WaitCommand(0.2)}));
 	    addSequential(new Turn(43));  //turn towards scale
@@ -37,30 +37,30 @@ public class LeftSideLeftScaleAuto extends CommandGroup {
 	    addParallel(new PivotIntake('u'));
 	    addSequential(new WaitCommand(0.5));
 	    addParallel(new PivotIntake('d'));
-	    addSequential(new Turn(144));  //turn towards first switch cube
+	    addSequential(new Turn(148));  //turn towards first switch cube
 	    addSequential(new ResetEnc());
-	    addParallel(new MoveIntake(-1, 4));  //run intake to pickup cube
-	    addSequential(new LowGearGyroDrive(66000, 144)); //33000
-	    addSequential(new MoveIntake(-1,0.2));
-	    addParallel(new MoveIntake(-1.0,2));
+	    addParallel(new MoveIntake(-0.55, 4));  //run intake to pick up cube
+	    addSequential(new LowGearGyroDrive(61000, 148)); //33000
+	    addSequential(new MoveIntake(-0.55,1));
+	    addParallel(new MoveIntake(-0.55,2));
 	    addParallel(new MoveElevator(1));  //elevator up partway
 	    addSequential(new Turn(10));  //turn towards scale
 	    addSequential(new ResetEnc());
 	    addParallel(new MoveElevator(3));  //elevator to scale position
 	    addSequential(new LowGearGyroArc(46000, 10));  //drive towards scale
-	    addSequential(new MoveIntake(0.25, 0.6)); //SCORE SECOND CUBE
+	    addSequential(new MoveIntake(0.2, 0.6)); //SCORE SECOND CUBE
 	    addSequential(new LowGearGyroArc(0, 10));  //drive back
 //	    addSequential(new WaitCommand(0.2));
 	    addParallel(new PivotIntake('u'));
 	    addParallel(new MoveElevator(0));  //elevator down
 	    addSequential(new WaitCommand(0.5));
 	    addParallel(new PivotIntake('d'));
-	    addSequential(new Turn(135));  //turn towards second switch cube
+	    addSequential(new Turn(125));  //turn towards second switch cube
 	    
 	    addSequential(new ResetEnc());
-	    addParallel(new MoveIntake(-1, 3));
-	    addSequential(new LowGearGyroDrive(34000, 135));  //move to second switch cube
-	    addParallel(new MoveIntake(-1, 2));
+	    addParallel(new MoveIntake(-0.4,-0.9, 3));
+	    addSequential(new LowGearGyroDrive(35000, 125));  //move to second switch cube
+	    addSequential(new MoveIntake(-0.4,-0.9, 1.2));
 	    addParallel(new MoveElevator(1));
 	    addSequential(new Turn(-7));
 	    addParallel(new MoveElevator(3));
