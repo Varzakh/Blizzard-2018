@@ -1,5 +1,6 @@
 package org.usfirst.frc.team188.robot.automodes;
 
+import org.usfirst.frc.team188.robot.commands.DelayedCommand;
 import org.usfirst.frc.team188.robot.commands.ResetEnc;
 import org.usfirst.frc.team188.robot.controlcommands.HighGearGyroDrive;
 import org.usfirst.frc.team188.robot.controlcommands.LowGearGyroArc;
@@ -10,6 +11,7 @@ import org.usfirst.frc.team188.robot.controlcommands.PivotIntake;
 import org.usfirst.frc.team188.robot.controlcommands.ShiftGears;
 import org.usfirst.frc.team188.robot.controlcommands.Turn;
 
+import edu.wpi.first.wpilibj.command.Command;
 import edu.wpi.first.wpilibj.command.CommandGroup;
 import edu.wpi.first.wpilibj.command.WaitCommand;
 
@@ -31,6 +33,8 @@ public class LeftSideRightScaleAuto extends CommandGroup {
     	addParallel(new MoveElevator(2));
     	addSequential(new HighGearGyroDrive(483000,90));  //drive a bit more
     	addSequential(new ShiftGears('l'));
+//    	addParallel(new DelayedCommand(0.3,new Command[] {new ResetEnc(),
+//    				new MoveElevator(3),new PivotIntake('d'),new WaitCommand(0.2)}));
     	addSequential(new Turn(-15));  //turn towards scale
     	addParallel(new ResetEnc());
     	addParallel(new MoveElevator(3));  //move elevator to scale position

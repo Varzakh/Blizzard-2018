@@ -154,6 +154,7 @@ public class Robot extends TimedRobot {
 	public void teleopPeriodic() {
 		Scheduler.getInstance().run();
 		SmartDashboard.putBoolean("Elevator Light Sensor", Robot.elevator.getLimitSwitch());
+		SmartDashboard.putNumber("Elevator Power", Robot.elevator.elevator1.getMotorOutputVoltage());
 	}
 
 

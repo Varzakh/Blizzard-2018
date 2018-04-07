@@ -3,6 +3,7 @@ package org.usfirst.frc.team188.robot.commands;
 import org.usfirst.frc.team188.robot.automodes.ErrorAuto;
 import org.usfirst.frc.team188.robot.automodes.LeftSideLeftScaleAuto;
 import org.usfirst.frc.team188.robot.automodes.LeftSideRightScaleAuto;
+import org.usfirst.frc.team188.robot.automodes.LeftSideTwoScaleDriveAuto;
 import org.usfirst.frc.team188.robot.automodes.RightSideRightScaleAuto;
 
 import edu.wpi.first.wpilibj.DriverStation;
@@ -22,11 +23,15 @@ public class ScaleSideSelector extends Command {
     }
 
     protected void initialize() {
-    	if(DriverStation.getInstance().getGameSpecificMessage().charAt(1) == 'L')
-    		scaleAuto = new LeftSideLeftScaleAuto();
-    	else if(DriverStation.getInstance().getGameSpecificMessage().charAt(1) == 'R') 
+    	if(DriverStation.getInstance().getGameSpecificMessage().charAt(1) == 'L') {
+    		if (DriverStation.getInstance().getGameSpecificMessage().charAt(2) == 'L')
+//    			scaleAuto = new LeftSideTwoScaleDriveAuto();
+    			scaleAuto = new LeftSideLeftScaleAuto(); //change this to new auto
+    		else scaleAuto = new LeftSideLeftScaleAuto();
+    	} else if(DriverStation.getInstance().getGameSpecificMessage().charAt(1) == 'R') 
     		scaleAuto = new LeftSideRightScaleAuto();
     	else scaleAuto = new ErrorAuto("ScaleSideSelector could not select a side.");
+    	scaleAuto = new LeftSideLeftScaleAuto(); //remove this later
     	scaleAuto.start();
     }
 
