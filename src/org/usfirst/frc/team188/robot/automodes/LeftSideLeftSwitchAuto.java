@@ -1,5 +1,6 @@
 package org.usfirst.frc.team188.robot.automodes;
 
+import org.usfirst.frc.team188.robot.commands.ResetEnc;
 import org.usfirst.frc.team188.robot.controlcommands.LowGearGyroDrive;
 import org.usfirst.frc.team188.robot.controlcommands.MoveElevator;
 import org.usfirst.frc.team188.robot.controlcommands.MoveIntake;
@@ -17,11 +18,14 @@ public class LeftSideLeftSwitchAuto extends CommandGroup {
 
     public LeftSideLeftSwitchAuto() {
     	addSequential(new ShiftGears('l'));
-    	addSequential(new LowGearGyroDrive(185000,0));
-    	addSequential(new Turn(90));
     	addParallel(new MoveElevator(1));
+    	addParallel(new PivotIntake('d'));
+    	addSequential(new LowGearGyroDrive(167000,0));
+    	addSequential(new WaitCommand(0.6));
+    	addSequential(new Turn(90));
+    	addSequential(new ResetEnc());
     	addSequential(new WaitCommand(0.8));
-    	addSequential(new LowGearGyroDrive(12700,0));
+    	addSequential(new LowGearGyroDrive(12700,0),3);
     	addSequential(new PivotIntake('d'));
     	addSequential(new WaitCommand(0.5));
     	addSequential(new MoveIntake(0.5,0.6));

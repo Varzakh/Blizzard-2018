@@ -28,7 +28,7 @@ public class LeftSideRightScaleAuto extends CommandGroup {
     	addSequential(new HighGearGyroDrive(223500,0)); // (340000) drive forward initially
     	addSequential(new ShiftGears('l'));
     	addSequential(new WaitCommand(0.5));
-    	addSequential(new LowGearGyroArc(700000,90,0.5,300000));  //drive and arc to right side
+    	addSequential(new LowGearGyroArc(700000,90,0.5,308000));  //drive and arc to right side
     	addSequential(new ShiftGears('h'));
     	addParallel(new MoveElevator(2));
     	addSequential(new HighGearGyroDrive(483000,90));  //drive a bit more
