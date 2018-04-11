@@ -29,11 +29,11 @@ public class Intake extends Subsystem {
 	
 	public void moveIntake(){
 		if(Math.abs(Robot.m_oi.stick2.getRawAxis(1)) < 0.05){
-			intakeLeft.set(ControlMode.PercentOutput, -0.2);
-			intakeRight.set(ControlMode.PercentOutput, 0.2);
+			intakeLeft.set(ControlMode.PercentOutput, -0.35);
+			intakeRight.set(ControlMode.PercentOutput, 0.35);
 		} else if (!Robot.m_oi.slowOuttake.get()) {
-			intakeLeft.set(ControlMode.PercentOutput, -Robot.m_oi.stick2.getRawAxis(1)*0.7);
-			intakeRight.set(ControlMode.PercentOutput, Robot.m_oi.stick2.getRawAxis(1)*0.7);
+			intakeLeft.set(ControlMode.PercentOutput, -Robot.m_oi.stick2.getRawAxis(1)*0.5);
+			intakeRight.set(ControlMode.PercentOutput, Robot.m_oi.stick2.getRawAxis(1)*0.5);
 		} else{
 			intakeLeft.set(ControlMode.PercentOutput, 0.25);
 			intakeRight.set(ControlMode.PercentOutput, -0.25);
