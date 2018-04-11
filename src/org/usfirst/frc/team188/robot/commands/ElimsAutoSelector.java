@@ -1,7 +1,9 @@
 package org.usfirst.frc.team188.robot.commands;
 
+import org.usfirst.frc.team188.robot.automodes.ErrorAuto;
 import org.usfirst.frc.team188.robot.automodes.LeftSideLeftScaleAuto;
 import org.usfirst.frc.team188.robot.automodes.LeftSideLeftSwitchAuto;
+import org.usfirst.frc.team188.robot.automodes.LeftSideRightScaleAuto;
 import org.usfirst.frc.team188.robot.automodes.LeftSideRightSwitchAuto;
 import org.usfirst.frc.team188.robot.automodes.LeftSideScaleSwitchAuto;
 
@@ -23,17 +25,12 @@ public class ElimsAutoSelector extends Command {
 
     // Called just before this Command runs the first time
     protected void initialize() {
-    	if (DriverStation.getInstance().getGameSpecificMessage().charAt(1) == 'L') {
-    		if (DriverStation.getInstance().getGameSpecificMessage().charAt(0) == 'L')
-    			selectedAuto = new LeftSideScaleSwitchAuto();
-    		else
-    			selectedAuto = new LeftSideLeftScaleAuto();
-    	} else {
-    		if (DriverStation.getInstance().getGameSpecificMessage().charAt(0) == 'L')
-    			selectedAuto = new LeftSideLeftSwitchAuto();
-    		else
-    			selectedAuto = new LeftSideRightSwitchAuto();
-    	}
+    	if(DriverStation.getInstance().getGameSpecificMessage().charAt(1) == 'L')
+    		selectedAuto = new LeftSideLeftScaleAuto();
+    	else if(DriverStation.getInstance().getGameSpecificMessage().charAt(1) == 'R') 
+    		selectedAuto = new LeftSideRightScaleAuto();
+    	else selectedAuto = new ErrorAuto("ElimsSideSelector could not select a side.");
+    		
     	selectedAuto.start();
     }
 
