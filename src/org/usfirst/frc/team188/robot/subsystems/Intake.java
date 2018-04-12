@@ -37,7 +37,8 @@ public class Intake extends Subsystem {
 	}
 	
 	public void moveIntake(){
-		if(Math.abs(Robot.m_oi.stick2.getRawAxis(1)) < 0.05 && (!timerStarted || t.get() > 1.0)){
+		if(Math.abs(Robot.m_oi.stick2.getRawAxis(1)) < 0.05 && (!timerStarted || t.get() > 1.0)
+				&& Robot.elevator.getElevatorEnc() < 610){
 			intakeLeft.set(ControlMode.PercentOutput, -0.35);
 			intakeRight.set(ControlMode.PercentOutput, 0.35);
 		} else if (!Robot.m_oi.slowOuttake.get()) {

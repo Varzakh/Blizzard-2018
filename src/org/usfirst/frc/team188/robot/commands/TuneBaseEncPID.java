@@ -14,7 +14,7 @@ public class TuneBaseEncPID extends Command {
 	
 	PIDSubsystem baseEncPID;
 	double maxEnc = 0;
-	double power = 0.5;
+	double power = 1;
 
     public TuneBaseEncPID() {
     	requires(Robot.base);
@@ -47,6 +47,7 @@ public class TuneBaseEncPID extends Command {
     	maxEnc = Math.max(maxEnc,Robot.base.getEnc());
     	SmartDashboard.putNumber("Base Enc", Robot.base.getEnc());
     	SmartDashboard.putNumber("Max Base Enc", maxEnc);
+    	SmartDashboard.putNumber("Back Right Output Value", Robot.base.backRight.getMotorOutputPercent());
     }
 
     // Make this return true when this Command no longer needs to run execute()
