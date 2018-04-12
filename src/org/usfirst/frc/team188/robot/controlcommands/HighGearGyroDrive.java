@@ -17,6 +17,7 @@ public class HighGearGyroDrive extends Command {
 	
 	int count;
 	int onTargetCount;
+	int defaultTargetCount = 5;
 	
 	BaseEncPID baseEncPID;
 	BaseGyroPID baseGyroPID;
@@ -36,7 +37,7 @@ public class HighGearGyroDrive extends Command {
     	baseEncPID = new BaseEncPID(pEnc,iEnc,dEnc,encSetpoint,this.power,true);
     	baseGyroPID = new BaseGyroPID(pGyro,iGyro,dGyro,gyroSetpoint,this.power,true);
     	this.endpoint = 0;
-    	this.onTargetCount = 18;
+    	this.onTargetCount = defaultTargetCount;
     }
     
     public HighGearGyroDrive(int encSetpoint, double gyroSetpoint, int endpoint) {
@@ -45,7 +46,7 @@ public class HighGearGyroDrive extends Command {
     	baseEncPID = new BaseEncPID(pEnc,iEnc,dEnc,encSetpoint,this.power,true);
     	baseGyroPID = new BaseGyroPID(pGyro,iGyro,dGyro,gyroSetpoint,this.power,true);
     	this.endpoint = endpoint;
-    	this.onTargetCount = 18;
+    	this.onTargetCount = defaultTargetCount;
     }
     
     public HighGearGyroDrive(int encSetpoint, double gyroSetpoint, int onTargetCount, boolean weRDumm) {

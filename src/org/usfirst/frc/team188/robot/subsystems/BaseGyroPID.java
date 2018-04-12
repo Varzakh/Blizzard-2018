@@ -75,6 +75,8 @@ public class BaseGyroPID extends PIDSubsystem {
     protected void usePIDOutput(double output) {
         // Use output to drive your system, like a motor
         // e.g. yourMotor.set(output);
+    	    	
+//    	Robot.base.encPwr = 0.8; //FOR TUNING, REMOVE LATER
     	
     	SmartDashboard.putNumber("Gyro PID",output);
     	SmartDashboard.putNumber("Gyro", Robot.base.getGyro());

@@ -1,6 +1,7 @@
 package org.usfirst.frc.team188.robot.commands;
 
 import org.usfirst.frc.team188.robot.Robot;
+import org.usfirst.frc.team188.robot.controlcommands.MoveElevator;
 import org.usfirst.frc.team188.robot.subsystems.BaseEncPID;
 
 import edu.wpi.first.wpilibj.command.Command;
@@ -14,7 +15,7 @@ public class TuneBaseEncPID extends Command {
 	
 	PIDSubsystem baseEncPID;
 	double maxEnc = 0;
-	double power = 1;
+	double power = 0.8;
 
     public TuneBaseEncPID() {
     	requires(Robot.base);
@@ -26,6 +27,7 @@ public class TuneBaseEncPID extends Command {
 		Robot.base.backLeft.configOpenloopRamp(0.2, 0);
 		Robot.base.frontRight.configOpenloopRamp(0.2, 0);
 		Robot.base.backRight.configOpenloopRamp(0.2, 0);
+		
     	baseEncPID = new BaseEncPID(SmartDashboard.getNumber("Base Enc P", 0.0), SmartDashboard.getNumber("Base Enc I", 0.0), 
     			SmartDashboard.getNumber("Base Enc D", 0.0), SmartDashboard.getNumber("Base Enc Setpoint", 0.0),power);
     	baseEncPID.enable();

@@ -12,6 +12,9 @@ import edu.wpi.first.wpilibj.command.Command;
  */
 public class LowGearGyroDrive extends Command {
 	
+	int count;
+	int onTargetCount;
+	int defaultTargetCount = 5;
 	
 	double power;
 	
@@ -38,6 +41,7 @@ public class LowGearGyroDrive extends Command {
     	this.power = 0.8;
     	baseEncPID = new BaseEncPID(pEnc,iEnc,dEnc,encSetpoint,this.power,true);
     	baseGyroPID = new BaseGyroPID(pGyro,iGyro,dGyro,gyroSetpoint,this.power,true);
+    	this.onTargetCount = defaultTargetCount;
     }
     
     public LowGearGyroDrive(int encSetpoint, double gyroSetpoint, double power) {
@@ -47,6 +51,7 @@ public class LowGearGyroDrive extends Command {
     	this.power = power;
     	baseEncPID = new BaseEncPID(pEnc,iEnc,dEnc,encSetpoint,this.power,true);
     	baseGyroPID = new BaseGyroPID(pGyro,iGyro,dGyro,gyroSetpoint,0.8,true);
+    	this.onTargetCount = defaultTargetCount;
     }
     
     // Called just before this Command runs the first time
@@ -88,12 +93,14 @@ public class LowGearGyroDrive extends Command {
 //    	}
     	
     	Robot.base.drive(Robot.base.encPwr, Robot.base.gyroPwr);
-    	System.out.println(baseEncPID.getSetpoint());
+    	
+    	if (baseGyroPID.onTarget() && baseEncPID.onTarget()) count++;
+    	else count = 0;
     }
 
     // Make this return true when this Command no longer needs to run execute()
     protected boolean isFinished() {
-        return baseGyroPID.onTarget() && baseEncPID.onTarget();
+        return count > onTargetCount;
     }
 
     // Called once after isFinished returns true

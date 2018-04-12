@@ -26,7 +26,7 @@ public class LeftSideLeftScaleAuto extends CommandGroup {
     	addSequential(new ShiftGears('h'));  //shift to high
     	addParallel(new MoveElevator(2));
     	addParallel(new PivotIntake('d'));  //intake down
-	    addSequential(new HighGearGyroDrive(290000, 0)); //258000, high gear
+	    addSequential(new HighGearGyroDrive(295000, 0)); //258000, high gear
 	    addSequential(new ShiftGears('l'));  //shift to low
 //	    addParallel(new DelayedCommand(0.3,new Command[]{new MoveElevator(3),new WaitCommand(0.2)}));
 	    addSequential(new Turn(43));  //turn towards scale

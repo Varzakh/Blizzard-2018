@@ -23,7 +23,7 @@ public class LeftSide3CubeAuto extends CommandGroup {
     	addSequential(new ShiftGears('h'));  //shift to high
     	addParallel(new MoveElevator(2));
     	addParallel(new PivotIntake('d'));  //intake down
-	    addSequential(new HighGearGyroDrive(290000, 0)); //initial sprint forward
+	    addSequential(new HighGearGyroDrive(295000, 0)); //initial sprint forward
 	    addSequential(new ShiftGears('l'));  //shift to low
 	    addSequential(new Turn(43));  //turn towards scale
 	    addParallel(new MoveElevator(3));  //elevator to scale position

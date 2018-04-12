@@ -25,7 +25,7 @@ public class TestingAuto extends CommandGroup {
 //    	addSequential(new DelayedCommand(1.0,new Command[] {new MoveIntake(1.0,1.0),new PivotIntake('d')}));
 //    	addSequential(new MoveIntake(-0.5,5));
 
-    	addSequential(new ShiftGears('h'));
+    	addSequential(new ShiftGears('l'));
     	addSequential(new TuneBaseEncPID());
     	
 //    	addSequential(new ShiftGears('l'));

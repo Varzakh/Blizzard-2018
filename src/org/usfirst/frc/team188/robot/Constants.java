@@ -11,8 +11,8 @@ public class Constants {
 	public static double[] gyroArcPID = {0.08, 0, 0.1};
 	public static double[] gyroStraightPID = {0.3, 0, 0.3};
 	
-	public static double[] highGearBaseEncPID = {0.000011, 0, 0.0003}; //0.000007, 0, 0.00008
-	public static double[] baseEncPID = {0.00003, 0, 0.00002652}; //0.000037071, 0, 0.00002652 P reduced to minimize overshoot (sketch)
+	public static double[] highGearBaseEncPID = {0.000006, 0, 0.009}; //0.000007, 0, 0.00008
+	public static double[] baseEncPID = {0.00001, 0, 0.000053}; //0.000037071, 0, 0.00002652 P reduced to minimize overshoot (sketch)
 	public static double[] baseArcPID = {0.000055, 0, 0.00008};
 	public static double[] baseLowEncPID = {0.00008, 0, 0.0001};
 	
