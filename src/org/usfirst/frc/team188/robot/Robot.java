@@ -13,6 +13,7 @@ import edu.wpi.first.wpilibj.command.Scheduler;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 
 import org.usfirst.frc.team188.robot.automodes.ElimsAutoInitializer;
+import org.usfirst.frc.team188.robot.automodes.MobilityAuto;
 import org.usfirst.frc.team188.robot.automodes.ScaleAutoInitializer;
 import org.usfirst.frc.team188.robot.automodes.SwitchAutoInitializer;
 import org.usfirst.frc.team188.robot.automodes.TestingAuto;
@@ -52,9 +53,10 @@ public class Robot extends TimedRobot {
 		
 		teleopCommandGroup = new TeleopCommandGroup();
 		autos = new String[] {
-			"Elims Auto",
+			"Elims Auto (Actually just 3 cube left scale)",
 			"Scale Auto",
 			"Switch Auto",
+			"Mobility Auto",
 			"Test Auto"
 		};
 		
@@ -76,6 +78,7 @@ public class Robot extends TimedRobot {
 			new ElimsAutoInitializer(),
 			new ScaleAutoInitializer('l'),
 			new SwitchAutoInitializer(),
+			new MobilityAuto(),
 			new TestingAuto()
 		};
 		
@@ -145,7 +148,7 @@ public class Robot extends TimedRobot {
 
 	@Override
 	public void teleopInit() {
-		Robot.base.shiftToLow();
+		Robot.base.shiftToHigh();
     	Robot.base.frontLeft.setNeutralMode(NeutralMode.Brake);
     	Robot.base.frontRight.setNeutralMode(NeutralMode.Brake);
     	Robot.base.backLeft.setNeutralMode(NeutralMode.Brake);

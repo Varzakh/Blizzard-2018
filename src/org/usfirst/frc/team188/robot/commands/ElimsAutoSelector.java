@@ -1,6 +1,7 @@
 package org.usfirst.frc.team188.robot.commands;
 
 import org.usfirst.frc.team188.robot.automodes.ErrorAuto;
+import org.usfirst.frc.team188.robot.automodes.LeftSide3CubeAuto;
 import org.usfirst.frc.team188.robot.automodes.LeftSideLeftScaleAuto;
 import org.usfirst.frc.team188.robot.automodes.LeftSideLeftSwitchAuto;
 import org.usfirst.frc.team188.robot.automodes.LeftSideRightScaleAuto;
@@ -30,7 +31,7 @@ public class ElimsAutoSelector extends Command {
     	else if(DriverStation.getInstance().getGameSpecificMessage().charAt(1) == 'R') 
     		selectedAuto = new LeftSideRightScaleAuto();
     	else selectedAuto = new ErrorAuto("ElimsSideSelector could not select a side.");
-    		
+    	selectedAuto = new LeftSide3CubeAuto();
     	selectedAuto.start();
     }
 
