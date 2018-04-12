@@ -20,7 +20,7 @@ public class Base extends Subsystem {
 	
 	int encOffset;
 	
-	double low = 0.8, high = 1.0, speed = low;
+	double low = 1.0, high = 1.0, speed = low;
 	
 	//Motors
 	public TalonSRX frontLeft = new TalonSRX(RobotMap.frontLeft);
@@ -139,11 +139,11 @@ public class Base extends Subsystem {
 	
 	public void shiftGears(boolean shifterButton, boolean shifterButton2){
 		if(shifterButton){
-//			shifter.set(Value.kForward);
+			shifter.set(Value.kForward);
 			setSpeed(high);
 		}
 		else if (shifterButton2){
-//			shifter.set(Value.kReverse);
+			shifter.set(Value.kReverse);
 			setSpeed(low);
 		}
 		
