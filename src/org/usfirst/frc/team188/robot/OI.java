@@ -35,6 +35,7 @@ public class OI {
 	public Button winchButton = new JoystickButton(stick2, 12);
 	public Button hang = new JoystickButton(stick2, 10);
 	public Button slowOuttake = new JoystickButton(stick2, 5);
+	public Button slowestOuttake = new JoystickButton(stick2, 6);
 	
 	public Button[] elevatorPresets = 
 			{new JoystickButton(stick2,1), 

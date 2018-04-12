@@ -132,7 +132,7 @@ public class Elevator extends Subsystem {
 			if (Robot.m_oi.elevatorPresets[i].get()){
 				lastPressed = i; //Preset to use
 				break;
-			} else if (i == Robot.m_oi.elevatorPresets.length - 1 || Math.abs(Robot.m_oi.stick2.getRawAxis(1)) > 0.05){
+			} else if (i == Robot.m_oi.elevatorPresets.length - 1 || Math.abs(Robot.m_oi.stick2.getRawAxis(3)) > 0.05){
 				lastPressed = -1; //Joystick input
 				disablePID(elevatorUpPID);
 				disablePID(elevatorDownBigPID);

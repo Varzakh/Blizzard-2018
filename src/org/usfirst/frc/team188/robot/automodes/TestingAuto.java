@@ -26,7 +26,9 @@ public class TestingAuto extends CommandGroup {
 //    	addSequential(new MoveIntake(-0.5,5));
 
     	addSequential(new ShiftGears('l'));
-    	addSequential(new TuneBaseEncPID());
+    	addSequential(new LowGearGyroDrive(50000,0));
+    	
+//    	addSequential(new TuneBaseEncPID());
     	
 //    	addSequential(new ShiftGears('l'));
 //    	addSequential(new LowGearGyroDrive(225000,0));

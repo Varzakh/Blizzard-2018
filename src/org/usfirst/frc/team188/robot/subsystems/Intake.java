@@ -1,5 +1,6 @@
 package org.usfirst.frc.team188.robot.subsystems;
 
+import org.usfirst.frc.team188.robot.Constants;
 import org.usfirst.frc.team188.robot.Robot;
 import org.usfirst.frc.team188.robot.RobotMap;
 
@@ -37,28 +38,31 @@ public class Intake extends Subsystem {
 	}
 	
 	public void moveIntake(){
-		if(Math.abs(Robot.m_oi.stick2.getRawAxis(1)) < 0.05 && (!timerStarted || t.get() > 1.0)
-				&& Robot.elevator.getElevatorEnc() < 610){
-			intakeLeft.set(ControlMode.PercentOutput, -0.35);
-			intakeRight.set(ControlMode.PercentOutput, 0.35);
-		} else if (!Robot.m_oi.slowOuttake.get()) {
+		
+		// If stick registering input
+		if (Robot.m_oi.slowestOuttake.get()) {
+			intakeLeft.set(ControlMode.PercentOutput, 0.1);
+			intakeRight.set(ControlMode.PercentOutput, -0.1);
+		} else if (Robot.m_oi.slowOuttake.get()) {
+			intakeLeft.set(ControlMode.PercentOutput, 0.25);
+			intakeRight.set(ControlMode.PercentOutput, -0.25);
+		} else if (Math.abs(Robot.m_oi.stick2.getRawAxis(1)) > 0.05) {
+			// If outtaking, half speed
 			if (Robot.m_oi.stick2.getRawAxis(1) < 0) {
 				intakeLeft.set(ControlMode.PercentOutput, -Robot.m_oi.stick2.getRawAxis(1)*0.5);
 				intakeRight.set(ControlMode.PercentOutput, Robot.m_oi.stick2.getRawAxis(1)*0.5);
+			} else {
+				intakeLeft.set(ControlMode.PercentOutput, -Robot.m_oi.stick2.getRawAxis(1)*0.8);
+				intakeRight.set(ControlMode.PercentOutput, Robot.m_oi.stick2.getRawAxis(1)*0.8);
 			}
-			else {
-				intakeLeft.set(ControlMode.PercentOutput, -Robot.m_oi.stick2.getRawAxis(1));
-				intakeRight.set(ControlMode.PercentOutput, Robot.m_oi.stick2.getRawAxis(1));
-			}
-			if (Robot.m_oi.stick2.getRawAxis(1) < -0.05)
-			{
-				timerStarted = true;
-				t.reset();
-				t.start();
-			}
-		} else{
-			intakeLeft.set(ControlMode.PercentOutput, 0.25);
-			intakeRight.set(ControlMode.PercentOutput, -0.25);
+		} else if ((!timerStarted || t.get() > 1.0)
+				&& Robot.elevator.getElevatorEnc() < Constants.elevatorPresets[2] - 15) {
+			// Trim, if timer is started and past 1 second and elevator is below scale preset
+			intakeLeft.set(ControlMode.PercentOutput, -0.35);
+			intakeRight.set(ControlMode.PercentOutput, 0.35);
+		} else {
+			intakeLeft.set(ControlMode.PercentOutput, 0.0);
+			intakeRight.set(ControlMode.PercentOutput, 0.0);
 		}
 	}
 	
