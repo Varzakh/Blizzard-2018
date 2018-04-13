@@ -34,7 +34,7 @@ public class HighGearGyroDrive extends Command {
     public HighGearGyroDrive(int encSetpoint, double gyroSetpoint) {
     	requires(Robot.base);
     	this.power = 0.8;
-    	baseEncPID = new BaseEncPID(pEnc,iEnc,dEnc,encSetpoint,this.power,true);
+    	baseEncPID = new BaseEncPID(pEnc,iEnc,dEnc,encSetpoint,this.power,true,true);
     	baseGyroPID = new BaseGyroPID(pGyro,iGyro,dGyro,gyroSetpoint,this.power,true);
     	this.endpoint = 0;
     	this.onTargetCount = defaultTargetCount;
@@ -43,7 +43,7 @@ public class HighGearGyroDrive extends Command {
     public HighGearGyroDrive(int encSetpoint, double gyroSetpoint, int endpoint) {
     	requires(Robot.base);
     	this.power = 0.8;
-    	baseEncPID = new BaseEncPID(pEnc,iEnc,dEnc,encSetpoint,this.power,true);
+    	baseEncPID = new BaseEncPID(pEnc,iEnc,dEnc,encSetpoint,this.power,true,true);
     	baseGyroPID = new BaseGyroPID(pGyro,iGyro,dGyro,gyroSetpoint,this.power,true);
     	this.endpoint = endpoint;
     	this.onTargetCount = defaultTargetCount;
@@ -52,7 +52,7 @@ public class HighGearGyroDrive extends Command {
     public HighGearGyroDrive(int encSetpoint, double gyroSetpoint, int onTargetCount, boolean weRDumm) {
     	requires(Robot.base);
     	this.power = 0.8;
-    	baseEncPID = new BaseEncPID(pEnc,iEnc,dEnc,encSetpoint,this.power,true);
+    	baseEncPID = new BaseEncPID(pEnc,iEnc,dEnc,encSetpoint,this.power,true,true);
     	baseGyroPID = new BaseGyroPID(pGyro,iGyro,dGyro,gyroSetpoint,this.power,true);
     	this.endpoint = 0;
     	this.onTargetCount = onTargetCount;

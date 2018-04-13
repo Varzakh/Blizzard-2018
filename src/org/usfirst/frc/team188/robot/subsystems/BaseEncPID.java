@@ -16,25 +16,17 @@ public class BaseEncPID extends PIDSubsystem {
     // Initialize your subsystem here
     public BaseEncPID(double p, double i, double d, double setpoint) {
     	super("BaseEncPID", p, i, d);
-        // Use these to get going:
-        // setSetpoint() -  Sets where the PID controller should move the system
-        //                  to
-        // enable() - Enables the PID controller.
     	setSetpoint(setpoint);
-    	setAbsoluteTolerance(10000);
+    	setAbsoluteTolerance(2000);
     	this.power = 1.0;
     	this.store = false;
     	disable();
     }
-
+    
     public BaseEncPID(double p, double i, double d, double setpoint, double power) {
     	super("BaseEncPID", p, i, d);
-        // Use these to get going:
-        // setSetpoint() -  Sets where the PID controller should move the system
-        //                  to
-        // enable() - Enables the PID controller.
     	setSetpoint(setpoint);
-    	setAbsoluteTolerance(10000);
+    	setAbsoluteTolerance(2000);
     	this.power = power;
     	this.store = false;
     	disable();
@@ -42,12 +34,18 @@ public class BaseEncPID extends PIDSubsystem {
     
     public BaseEncPID(double p, double i, double d, double setpoint, double power, boolean store) {
     	super("BaseEncPID", p, i, d);
-        // Use these to get going:
-        // setSetpoint() -  Sets where the PID controller should move the system
-        //                  to
-        // enable() - Enables the PID controller.
     	setSetpoint(setpoint);
-    	setAbsoluteTolerance(10000);
+    	setAbsoluteTolerance(2000);
+    	this.power = power;
+    	this.store = store;
+    	disable();
+    }
+    
+    public BaseEncPID(double p, double i, double d, double setpoint, double power, boolean store, boolean highTolerance) {
+    	super("BaseEncPID", p, i, d);
+    	setSetpoint(setpoint);
+    	if (highTolerance) setAbsoluteTolerance(10000);
+    	else setAbsoluteTolerance(2000);
     	this.power = power;
     	this.store = store;
     	disable();

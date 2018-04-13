@@ -13,6 +13,7 @@ import edu.wpi.first.wpilibj.command.Scheduler;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 
 import org.usfirst.frc.team188.robot.automodes.MobilityAuto;
+import org.usfirst.frc.team188.robot.automodes.MultiAutoInitializer;
 import org.usfirst.frc.team188.robot.automodes.ScaleAutoInitializer;
 import org.usfirst.frc.team188.robot.automodes.SwitchAutoInitializer;
 import org.usfirst.frc.team188.robot.automodes.TestingAuto;
@@ -52,6 +53,7 @@ public class Robot extends TimedRobot {
 		
 		teleopCommandGroup = new TeleopCommandGroup();
 		autos = new String[] {
+			"Multi Auto",
 			"Scale Auto",
 			"Switch Auto",
 			"Mobility Auto",
@@ -73,6 +75,7 @@ public class Robot extends TimedRobot {
 		if (autoCommandGroup != null && autoCommandGroup.isRunning())
 			autoCommandGroup.cancel();
 		autoCommandGroups = new CommandGroup[] {
+			new MultiAutoInitializer(),
 			new ScaleAutoInitializer('l'),
 			new SwitchAutoInitializer(),
 			new MobilityAuto(),
