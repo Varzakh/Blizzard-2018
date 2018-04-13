@@ -13,6 +13,7 @@ import org.usfirst.frc.team188.robot.controlcommands.ShiftGears;
 
 import edu.wpi.first.wpilibj.command.Command;
 import edu.wpi.first.wpilibj.command.CommandGroup;
+import edu.wpi.first.wpilibj.command.WaitCommand;
 
 /**
  *
@@ -26,7 +27,13 @@ public class TestingAuto extends CommandGroup {
 //    	addSequential(new MoveIntake(-0.5,5));
 
     	addSequential(new ShiftGears('l'));
-    	addSequential(new LowGearGyroDrive(50000,0));
+    	addSequential(new WaitCommand(1));
+    	addSequential(new ShiftGears('h'));
+    	addSequential(new WaitCommand(1));
+    	addSequential(new ShiftGears('l'));
+    	addSequential(new WaitCommand(1));
+    	addSequential(new ShiftGears('h'));
+    	addSequential(new WaitCommand(1));
     	
 //    	addSequential(new TuneBaseEncPID());
     	

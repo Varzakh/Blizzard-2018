@@ -31,7 +31,7 @@ public class LeftSideRightScaleAuto extends CommandGroup {
     	addSequential(new LowGearGyroArc(700000,90,0.5,308000));  //drive and arc to right side
     	addSequential(new ShiftGears('h'));
     	addParallel(new MoveElevator(2));
-    	addSequential(new HighGearGyroDrive(543000,90));  //drive a bit more
+    	addSequential(new HighGearGyroDrive(498000,90));  //drive a bit more
     	addSequential(new ShiftGears('l'));
 //    	addParallel(new DelayedCommand(0.3,new Command[] {new ResetEnc(),
 //    				new MoveElevator(3),new PivotIntake('d'),new WaitCommand(0.2)}));
@@ -47,12 +47,12 @@ public class LeftSideRightScaleAuto extends CommandGroup {
     	addParallel(new MoveElevator(0));  //elevator down
     	addSequential(new WaitCommand(1));
     	addParallel(new PivotIntake('d'));
-    	addSequential(new Turn(190));  //turn towards switch
+    	addSequential(new Turn(200));  //turn towards switch
     	addSequential(new ResetEnc());    	
-    	addParallel(new MoveIntake(-1.0,3.0));
-    	addSequential(new LowGearGyroDrive(46500,190));  //29000
-    	addSequential(new MoveIntake(-1.0,0.5));
-    	addParallel(new MoveIntake(-1.0,2));
+    	addParallel(new MoveIntake(-0.7,3.0));
+    	addSequential(new LowGearGyroDrive(30000,200));  //29000
+    	addSequential(new MoveIntake(-0.7,0.5));
+    	addParallel(new MoveIntake(-0.7,2));
     	addSequential(new Turn(0));  //turn towards scale
     	
     	addSequential(new ResetEnc());
