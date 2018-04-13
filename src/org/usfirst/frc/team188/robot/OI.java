@@ -32,8 +32,6 @@ public class OI {
 	public Button pivotDown = new JoystickButton(stick2, 9);
 	public Button pivotIn = new JoystickButton(stick2, 7);
 	public Button pivotOut = new JoystickButton(stick2, 8);
-	public Button winchButton = new JoystickButton(stick2, 12);
-	public Button hang = new JoystickButton(stick2, 10);
 	public Button slowOuttake = new JoystickButton(stick2, 5);
 	public Button slowestOuttake = new JoystickButton(stick2, 6);
 	
@@ -41,8 +39,7 @@ public class OI {
 			{new JoystickButton(stick2,1), 
 			new JoystickButton(stick2,2), 
 			new JoystickButton(stick2,3), 
-			new JoystickButton(stick2,4),
-			new JoystickButton(stick2,10)};
+			new JoystickButton(stick2,4)};
 	
 
 	

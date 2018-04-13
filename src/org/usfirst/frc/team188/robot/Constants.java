@@ -16,6 +16,6 @@ public class Constants {
 	public static double[] baseArcPID = {0.000055, 0, 0.00008};
 	public static double[] baseLowEncPID = {0.00008, 0, 0.0001};
 	
-	public static double[] elevatorPresets = {38, 250, 625, 865, 645}; //35, 235, 415, 610, 465
+	public static double[] elevatorPresets = {38, 250, 625, 865}; //35, 235, 415, 610, 465
 	
 }

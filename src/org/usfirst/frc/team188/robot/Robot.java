@@ -12,7 +12,6 @@ import edu.wpi.first.wpilibj.command.CommandGroup;
 import edu.wpi.first.wpilibj.command.Scheduler;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 
-import org.usfirst.frc.team188.robot.automodes.ElimsAutoInitializer;
 import org.usfirst.frc.team188.robot.automodes.MobilityAuto;
 import org.usfirst.frc.team188.robot.automodes.ScaleAutoInitializer;
 import org.usfirst.frc.team188.robot.automodes.SwitchAutoInitializer;
@@ -53,7 +52,6 @@ public class Robot extends TimedRobot {
 		
 		teleopCommandGroup = new TeleopCommandGroup();
 		autos = new String[] {
-			"Elims Auto (Actually just 3 cube left scale)",
 			"Scale Auto",
 			"Switch Auto",
 			"Mobility Auto",
@@ -75,7 +73,6 @@ public class Robot extends TimedRobot {
 		if (autoCommandGroup != null && autoCommandGroup.isRunning())
 			autoCommandGroup.cancel();
 		autoCommandGroups = new CommandGroup[] {
-			new ElimsAutoInitializer(),
 			new ScaleAutoInitializer('l'),
 			new SwitchAutoInitializer(),
 			new MobilityAuto(),

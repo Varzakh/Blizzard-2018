@@ -38,7 +38,6 @@ public class DriverCommand extends Command {
     	Robot.intake.moveIntake();   	
    
 //    	Elevator Controls
-    	Robot.elevator.hang();    	
     	Robot.elevator.moveElevator();
 
 //    	Current limiting on elevator

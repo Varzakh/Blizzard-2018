@@ -12,7 +12,6 @@ import edu.wpi.first.wpilibj.command.Command;
 public class MoveElevator extends Command {
 	
 	ElevatorPID elevatorPID;
-	boolean wasHanging = false;
 	int position;
 	int targetCount = 0;
 	
@@ -36,8 +35,6 @@ public class MoveElevator extends Command {
     // Make this return true when this Command no longer needs to run execute()
     protected boolean isFinished() {
     	if (DriverStation.getInstance().isAutonomous()) return false;
-    	if(wasHanging && !Robot.m_oi.hang.get()) return true;
-    	wasHanging = Robot.m_oi.hang.get();
     	if(Robot.elevator.getElevatorInputActive()) return true;
         return false;
     }

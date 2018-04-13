@@ -3,7 +3,6 @@ package org.usfirst.frc.team188.robot.subsystems;
 import org.usfirst.frc.team188.robot.Constants;
 import org.usfirst.frc.team188.robot.Robot;
 import org.usfirst.frc.team188.robot.RobotMap;
-import org.usfirst.frc.team188.robot.commands.Hang;
 
 import com.ctre.phoenix.motorcontrol.ControlMode;
 import com.ctre.phoenix.motorcontrol.can.TalonSRX;
@@ -19,19 +18,15 @@ import edu.wpi.first.wpilibj.command.Subsystem;
  *
  */
 public class Elevator extends Subsystem {
-	
-	public boolean hanging = false;
-	
+		
 	int lastPressed = -1;
 	boolean tilted = false;
 	char direction = 'u';
 	boolean[] presetPressed = {false,false,false,false};
 	double upRamp = 0.0, downRamp = 0.4, teleRamp = 0.0;
 	double power = 0.45;
-	CommandGroup hangCommand;
 	
 	
-	public static DoubleSolenoid hangPiston = RobotMap.hangPiston;
 	//Motors
 	public TalonSRX elevator1 = new TalonSRX(RobotMap.elevator1);
 	public TalonSRX elevator2 = new TalonSRX(RobotMap.elevator2);
@@ -140,13 +135,9 @@ public class Elevator extends Subsystem {
 			}
 		}
 		
-		if (Robot.m_oi.hang.get()) {
-			hangCommand = new Hang();
-			hangCommand.start();
-		}
 		
 		//Antitip enables down PID to preset 1, only if the elevator has not already hit the bottom limit switch
-		else if (tilted) {
+		if (tilted) {
 			
 			direction = 'd';
 			rampElevator(downRamp);
@@ -257,11 +248,6 @@ public class Elevator extends Subsystem {
 		return -1;
 	}
 	
-	public void hang(){
-		if(Robot.m_oi.winchButton.get()){
-			hangPiston.set(Value.kForward);
-		}
-	}
 	
 	public double getElevatorEnc(){
 		return enc.get();
