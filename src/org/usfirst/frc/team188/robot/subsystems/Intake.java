@@ -52,8 +52,8 @@ public class Intake extends Subsystem {
 				intakeLeft.set(ControlMode.PercentOutput, -Robot.m_oi.stick2.getRawAxis(1)*0.5);
 				intakeRight.set(ControlMode.PercentOutput, Robot.m_oi.stick2.getRawAxis(1)*0.5);
 			} else {
-				intakeLeft.set(ControlMode.PercentOutput, -Robot.m_oi.stick2.getRawAxis(1)*0.8);
-				intakeRight.set(ControlMode.PercentOutput, Robot.m_oi.stick2.getRawAxis(1)*0.8);
+				intakeLeft.set(ControlMode.PercentOutput, -Robot.m_oi.stick2.getRawAxis(1)*0.7);
+				intakeRight.set(ControlMode.PercentOutput, Robot.m_oi.stick2.getRawAxis(1)*0.7);
 			}
 		} else if ((!timerStarted || t.get() > 1.0)
 				&& Robot.elevator.getElevatorEnc() < Constants.elevatorPresets[2] - 15) {

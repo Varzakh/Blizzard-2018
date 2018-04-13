@@ -67,7 +67,6 @@ public class LeftSideLeftScaleAuto extends CommandGroup {
 	    addSequential(new Turn(-7));
 	    addParallel(new MoveElevator(3));
 	    addSequential(new LowGearGyroDrive(25000, -7));
-	    addSequential(new MoveIntake(0.4, 0.6));
-	    
+	    addSequential(new MoveIntake(0.4, 0.6));	    
     }
 }

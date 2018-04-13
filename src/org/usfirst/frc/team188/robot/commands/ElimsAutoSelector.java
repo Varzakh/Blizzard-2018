@@ -31,7 +31,7 @@ public class ElimsAutoSelector extends Command {
     	else if(DriverStation.getInstance().getGameSpecificMessage().charAt(1) == 'R') 
     		selectedAuto = new LeftSideRightScaleAuto();
     	else selectedAuto = new ErrorAuto("ElimsSideSelector could not select a side.");
-    	selectedAuto = new LeftSide3CubeAuto();
+    	selectedAuto = new LeftSideLeftScaleAuto();
     	selectedAuto.start();
     }
 
