@@ -17,7 +17,7 @@ public class BaseEncPID extends PIDSubsystem {
     public BaseEncPID(double p, double i, double d, double setpoint) {
     	super("BaseEncPID", p, i, d);
     	setSetpoint(setpoint);
-    	setAbsoluteTolerance(2000);
+    	setAbsoluteTolerance(3000);
     	this.power = 1.0;
     	this.store = false;
     	disable();
@@ -26,7 +26,7 @@ public class BaseEncPID extends PIDSubsystem {
     public BaseEncPID(double p, double i, double d, double setpoint, double power) {
     	super("BaseEncPID", p, i, d);
     	setSetpoint(setpoint);
-    	setAbsoluteTolerance(2000);
+    	setAbsoluteTolerance(3000);
     	this.power = power;
     	this.store = false;
     	disable();
@@ -35,7 +35,7 @@ public class BaseEncPID extends PIDSubsystem {
     public BaseEncPID(double p, double i, double d, double setpoint, double power, boolean store) {
     	super("BaseEncPID", p, i, d);
     	setSetpoint(setpoint);
-    	setAbsoluteTolerance(2000);
+    	setAbsoluteTolerance(3000);
     	this.power = power;
     	this.store = store;
     	disable();
@@ -45,7 +45,7 @@ public class BaseEncPID extends PIDSubsystem {
     	super("BaseEncPID", p, i, d);
     	setSetpoint(setpoint);
     	if (highTolerance) setAbsoluteTolerance(10000);
-    	else setAbsoluteTolerance(2000);
+    	else setAbsoluteTolerance(3000);
     	this.power = power;
     	this.store = store;
     	disable();
