@@ -40,7 +40,7 @@ public class LeftSideLeftScaleAuto extends CommandGroup {
 	    addSequential(new Turn(148));  //turn towards first switch cube
 	    addSequential(new ResetEnc());
 	    addParallel(new MoveIntake(-0.55, 4));  //run intake to pick up cube
-	    addSequential(new LowGearGyroDrive(55000, 148),2.25); //61000
+	    addSequential(new LowGearGyroDrive(70000, 148),2.25); //61000
 	    addSequential(new MoveIntake(-0.55,1));
 	    addParallel(new MoveIntake(-0.55,2));
 	    addParallel(new MoveElevator(1));  //elevator up partway
