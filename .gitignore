@@ -52,5 +52,8 @@ local.properties
 .scala_dependencies
 .worksheet
 
-# Ignore .class files
+# Vanshil
 *.class
+
+# Ignore package files
+*.jar
