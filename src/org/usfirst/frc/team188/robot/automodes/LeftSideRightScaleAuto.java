@@ -26,7 +26,10 @@ public class LeftSideRightScaleAuto extends CommandGroup {
     	addSequential(new MoveIntake(0,0));
     	addSequential(new PivotIntake('d'));
     	addSequential(new ShiftGears('h'));
-    	addSequential(new HighGearGyroDrive(224000,0,1,true)); // (340000) drive forward initially
+    	
+//    	addSequential(new HighGearGyroDrive(224000,0,1,true)); // (340000) drive forward initially
+    	addSequential(new HighGearGyroDrive(223500,0,1,true));
+    	
     	addSequential(new ShiftGears('l'));
     	addSequential(new WaitCommand(0.25));
     	
@@ -37,7 +40,7 @@ public class LeftSideRightScaleAuto extends CommandGroup {
     	addSequential(new ShiftGears('h'));
     	addParallel(new MoveElevator(2));
 //    	addSequential(new HighGearGyroDrive(480000,90));  //drive a bit more
-    	addSequential(new HighGearGyroDrive(187000,90));  //drive a bit more
+    	addSequential(new HighGearGyroDrive(187000,90));  //drive a bit more // WE HAVE TO TUNE THIS
     	addSequential(new ShiftGears('l'));
 //    	addParallel(new DelayedCommand(0.3,new Command[] {new ResetEnc(),
 //    				new MoveElevator(3),new PivotIntake('d'),new WaitCommand(0.2)}));
@@ -58,7 +61,10 @@ public class LeftSideRightScaleAuto extends CommandGroup {
     	addSequential(new Turn(200,11));  //turn towards switch
     	addSequential(new ResetEnc());    	
     	addParallel(new MoveIntake(-0.7,3.0));
-    	addSequential(new LowGearGyroDrive(45000,200),1.5);  //29000
+    	
+//    	addSequential(new LowGearGyroDrive(45000,200),1.5);  //29000
+    	addSequential(new LowGearGyroDrive(46500,200),1.5);
+    	
     	addSequential(new MoveIntake(-0.7,0.25));
     	addParallel(new MoveIntake(-0.7,2));
     	addSequential(new Turn(0,11));  //turn towards scale

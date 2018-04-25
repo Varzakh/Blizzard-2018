@@ -17,7 +17,7 @@ public class HighGearGyroDrive extends Command {
 	
 	int count;
 	int onTargetCount;
-	int defaultTargetCount = 0;
+	int defaultTargetCount = 10;
 	
 	BaseEncPID baseEncPID;
 	BaseGyroPID baseGyroPID;

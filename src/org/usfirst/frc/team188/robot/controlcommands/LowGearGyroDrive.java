@@ -14,7 +14,7 @@ public class LowGearGyroDrive extends Command {
 	
 	int count;
 	int onTargetCount;
-	int defaultTargetCount = 0;
+	int defaultTargetCount = 10;
 	
 	double power;
 	
