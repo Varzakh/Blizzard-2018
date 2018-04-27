@@ -56,6 +56,7 @@ public class LeftSideLeftScaleAuto extends CommandGroup {
 	    addParallel(new MoveElevator(3));  //elevator to scale position
 	    addSequential(new LowGearGyroArc(46000, 10));  //drive towards scale
 	    addSequential(new MoveIntake(0.3, 0.6)); //SCORE SECOND CUBE
+//	    addSequential(new MoveIntake(0, 0.6, 0.6));
 	    addSequential(new LowGearGyroArc(0, 10));  //drive back
 //	    addSequential(new WaitCommand(0.2));
 	    addParallel(new PivotIntake('u'));

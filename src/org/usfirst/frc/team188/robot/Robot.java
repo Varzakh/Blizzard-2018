@@ -74,13 +74,15 @@ public class Robot extends TimedRobot {
 	public void disabledInit() {
 		if (autoCommandGroup != null && autoCommandGroup.isRunning())
 			autoCommandGroup.cancel();
-		autoCommandGroups = new CommandGroup[] {
-			new MultiAutoInitializer(),
-			new ScaleAutoInitializer('l'),
-			new SwitchAutoInitializer(),
-			new MobilityAuto(),
-			new TestingAuto()
-		};
+		if (autoCommandGroups == null) {
+			autoCommandGroups = new CommandGroup[] {
+				new MultiAutoInitializer(),
+				new ScaleAutoInitializer('l'),
+				new SwitchAutoInitializer(),
+				new MobilityAuto(),
+				new TestingAuto()
+			};
+		}
 		
 		base.resetEnc();
 		
@@ -130,19 +132,17 @@ public class Robot extends TimedRobot {
 
 
 	@Override
-	public void autonomousInit() {
-		
-		
+	public void autonomousInit() {		
 		if (teleopCommandGroup.isRunning())
 			teleopCommandGroup.cancel();
 		
+		autoCommandGroup = autoCommandGroups[selectedAuto];
+		if (!autoCommandGroup.isRunning())
+			autoCommandGroup.start();
 	}
 
 	@Override
 	public void autonomousPeriodic() {
-		autoCommandGroup = autoCommandGroups[selectedAuto];
-		if (!autoCommandGroup.isRunning())
-			autoCommandGroup.start();
 		Scheduler.getInstance().run();
 	}
 

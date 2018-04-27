@@ -41,7 +41,7 @@ public class LeftSideRightScaleAuto extends CommandGroup {
 //    	addParallel(new MoveElevator(1));
     	addParallel(new DelayedCommand(1.7,new MoveElevator(1)));
 //    	addSequential(new HighGearGyroDrive(480000,90));  //drive a bit more
-    	addSequential(new MultiGearGyroDrive(233000,90));  //switched from high to multi, 187000
+    	addSequential(new MultiGearGyroDrive(219000,90));  //switched from high to multi, 187000, 233000 
     	
     	addSequential(new ShiftGears('l'));
 //    	addParallel(new DelayedCommand(0.3,new Command[] {new ResetEnc(),
@@ -51,8 +51,8 @@ public class LeftSideRightScaleAuto extends CommandGroup {
     	addParallel(new MoveElevator(3));  //move elevator to scale position
     	addParallel(new PivotIntake('d'));
     	addSequential(new WaitCommand(1));
-    	addParallel(new DelayedCommand(0.3,new MoveIntake(0.25,0.65)));
-    	addSequential(new LowGearGyroArc(33000,-15));  //drive towards scale
+    	addParallel(new DelayedCommand(0.4,new MoveIntake(0.2,0.65))); //0.3
+    	addSequential(new LowGearGyroArc(37000,-15));  //drive towards scale, 33000
 //    	addSequential(new MoveIntake(0.2,0.6));  //SCORE FIRST CUBE
     	addParallel(new PivotIntake('u'));
     	addSequential(new LowGearGyroArc(17500,-15));  //drive back
@@ -65,7 +65,7 @@ public class LeftSideRightScaleAuto extends CommandGroup {
     	addParallel(new MoveIntake(-0.7,3.0));
     	
 //    	addSequential(new LowGearGyroDrive(45000,200),1.5);  //29000
-    	addSequential(new LowGearGyroDrive(40000,200),1.5);
+    	addSequential(new LowGearGyroDrive(45000,200),1.5);
     	
     	addSequential(new MoveIntake(-0.7,0.25));
     	addParallel(new MoveIntake(-0.7,2));
@@ -74,7 +74,8 @@ public class LeftSideRightScaleAuto extends CommandGroup {
     	addSequential(new ResetEnc());
     	addParallel(new MoveElevator(3));
     	addSequential(new WaitCommand(0.5));
-    	addParallel(new DelayedCommand(0.8, new MoveIntake(0.2,6.0)));
+//    	addParallel(new DelayedCommand(0.8, new MoveIntake(0.2,6.0)));
+    	addParallel(new DelayedCommand(0.8, new MoveIntake(0.6, 0, 6.0)));
     	addSequential(new LowGearGyroDrive(52500,0));  //38000
 //    	addSequential(new MoveIntake(0.2,0.6));
     	addSequential(new LowGearGyroArc(10000,0));
