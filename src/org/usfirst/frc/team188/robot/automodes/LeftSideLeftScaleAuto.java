@@ -8,6 +8,7 @@ import org.usfirst.frc.team188.robot.controlcommands.LowGearGyroArc;
 import org.usfirst.frc.team188.robot.controlcommands.LowGearGyroDrive;
 import org.usfirst.frc.team188.robot.controlcommands.MoveElevator;
 import org.usfirst.frc.team188.robot.controlcommands.MoveIntake;
+import org.usfirst.frc.team188.robot.controlcommands.MultiGearGyroDrive;
 import org.usfirst.frc.team188.robot.controlcommands.PivotIntake;
 import org.usfirst.frc.team188.robot.controlcommands.ShiftGears;
 import org.usfirst.frc.team188.robot.controlcommands.Turn;
@@ -28,7 +29,7 @@ public class LeftSideLeftScaleAuto extends CommandGroup {
     	addParallel(new PivotIntake('d'));  //intake down
     	
 //	    addSequential(new HighGearGyroDrive(236500, 0)); //258000, high gear
-	    addSequential(new HighGearGyroDrive(249000, 0));
+	    addSequential(new MultiGearGyroDrive(275000,0));
 	    
 	    addSequential(new ShiftGears('l'));  //shift to low
 //	    addParallel(new DelayedCommand(0.3,new Command[]{new MoveElevator(3),new WaitCommand(0.2)}));
@@ -45,16 +46,16 @@ public class LeftSideLeftScaleAuto extends CommandGroup {
 	    addParallel(new MoveIntake(-0.55, 4));  //run intake to pick up cube
 	    
 //	    addSequential(new LowGearGyroDrive(70000, 148),2.25); //61000
-	    addSequential(new LowGearGyroDrive(61000, 148),2.25);
+	    addSequential(new LowGearGyroDrive(53000, 148),2.25);
 	    
-	    addSequential(new MoveIntake(-0.55,1));
+	    addSequential(new MoveIntake(-0.55,0.2));
 	    addParallel(new MoveIntake(-0.55,2));
 	    addParallel(new MoveElevator(1));  //elevator up partway
 	    addSequential(new Turn(10));  //turn towards scale
 	    addSequential(new ResetEnc());
 	    addParallel(new MoveElevator(3));  //elevator to scale position
 	    addSequential(new LowGearGyroArc(46000, 10));  //drive towards scale
-	    addSequential(new MoveIntake(0.2, 0.6)); //SCORE SECOND CUBE
+	    addSequential(new MoveIntake(0.3, 0.6)); //SCORE SECOND CUBE
 	    addSequential(new LowGearGyroArc(0, 10));  //drive back
 //	    addSequential(new WaitCommand(0.2));
 	    addParallel(new PivotIntake('u'));

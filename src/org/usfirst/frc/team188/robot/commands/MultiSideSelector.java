@@ -24,8 +24,8 @@ public class MultiSideSelector extends Command {
     protected void initialize() {
     	if(DriverStation.getInstance().getGameSpecificMessage().charAt(1) == 'L')
     		switchAuto = new LeftSideLeftScaleAuto();
-    	else if(DriverStation.getInstance().getGameSpecificMessage().charAt(0) == 'L') 
-    		switchAuto = new LeftSideLeftSwitchAuto();
+//    	else if(DriverStation.getInstance().getGameSpecificMessage().charAt(0) == 'L') 
+//    		switchAuto = new LeftSideLeftSwitchAuto();
     	else switchAuto = new MobilityAuto();
     	switchAuto.start();
     }

@@ -30,7 +30,7 @@ public class ScaleSideSelector extends Command {
     	else if(DriverStation.getInstance().getGameSpecificMessage().charAt(1) == 'R') 
     		scaleAuto = new LeftSideRightScaleAuto();
     	else scaleAuto = new ErrorAuto("ScaleSideSelector could not select a side.");
-    		
+    	
     	scaleAuto.start();
     }
 

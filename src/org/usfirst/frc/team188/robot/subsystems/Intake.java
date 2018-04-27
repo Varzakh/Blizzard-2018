@@ -51,7 +51,7 @@ public class Intake extends Subsystem {
 			if (Robot.m_oi.stick2.getRawAxis(1) < 0) {
 				intakeLeft.set(ControlMode.PercentOutput, -Robot.m_oi.stick2.getRawAxis(1)*0.5);
 				intakeRight.set(ControlMode.PercentOutput, Robot.m_oi.stick2.getRawAxis(1)*0.5);
-			} else {
+			} else { //changed power from 0.85 back to 0.7
 				intakeLeft.set(ControlMode.PercentOutput, -Robot.m_oi.stick2.getRawAxis(1)*0.7);
 				intakeRight.set(ControlMode.PercentOutput, Robot.m_oi.stick2.getRawAxis(1)*0.7);
 			}
