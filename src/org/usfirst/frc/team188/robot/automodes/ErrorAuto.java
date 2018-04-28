@@ -1,9 +1,7 @@
 package org.usfirst.frc.team188.robot.automodes;
 
 import org.usfirst.frc.team188.robot.controlcommands.HighGearGyroDrive;
-import org.usfirst.frc.team188.robot.controlcommands.LowGearGyroDrive;
 import org.usfirst.frc.team188.robot.controlcommands.ShiftGears;
-import org.usfirst.frc.team188.robot.controlcommands.Turn;
 
 import edu.wpi.first.wpilibj.command.CommandGroup;
 

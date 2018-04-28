@@ -13,7 +13,8 @@ import edu.wpi.first.wpilibj.command.Scheduler;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 
 import org.usfirst.frc.team188.robot.automodes.MobilityAuto;
-import org.usfirst.frc.team188.robot.automodes.MultiAutoInitializer;
+import org.usfirst.frc.team188.robot.automodes.ClutchAutoInitializer;
+import org.usfirst.frc.team188.robot.automodes.ElimsAutoInitializer;
 import org.usfirst.frc.team188.robot.automodes.ScaleAutoInitializer;
 import org.usfirst.frc.team188.robot.automodes.SwitchAutoInitializer;
 import org.usfirst.frc.team188.robot.automodes.TestingAuto;
@@ -53,7 +54,7 @@ public class Robot extends TimedRobot {
 		
 		teleopCommandGroup = new TeleopCommandGroup();
 		autos = new String[] {
-			"Multi Auto",
+			"Elims Auto",
 			"Scale Auto",
 			"Switch Auto",
 			"Mobility Auto",
@@ -76,7 +77,7 @@ public class Robot extends TimedRobot {
 			autoCommandGroup.cancel();
 		if (autoCommandGroups == null) {
 			autoCommandGroups = new CommandGroup[] {
-				new MultiAutoInitializer(),
+				new ElimsAutoInitializer(),
 				new ScaleAutoInitializer('l'),
 				new SwitchAutoInitializer(),
 				new MobilityAuto(),
@@ -98,7 +99,9 @@ public class Robot extends TimedRobot {
 	public void disabledPeriodic() {
 		Scheduler.getInstance().run();
 		
-		if (!prevChangeAuto && m_oi.stick.getRawButton(6)){
+		if (m_oi.stick.getRawButton(7))
+			selectedAuto = 0;
+		else if (!prevChangeAuto && m_oi.stick.getRawButton(6)){
 			++selectedAuto;
 		} else if(!prevChangeAuto && m_oi.stick.getRawButton(5)){
 			--selectedAuto;
@@ -107,7 +110,7 @@ public class Robot extends TimedRobot {
 		if(selectedAuto >= autos.length) selectedAuto = 0;
 		else if(selectedAuto < 0) selectedAuto = autos.length - 1;
 		
-		prevChangeAuto = m_oi.stick.getRawButton(5) || m_oi.stick.getRawButton(6);
+		prevChangeAuto = m_oi.stick.getRawButton(5) || m_oi.stick.getRawButton(6) || m_oi.stick.getRawButton(7);
 		SmartDashboard.putString("Auto Mode", autos[selectedAuto]);
 		if (prevChangeAuto)
 			System.out.println("Auto Mode: " + autos[selectedAuto]);

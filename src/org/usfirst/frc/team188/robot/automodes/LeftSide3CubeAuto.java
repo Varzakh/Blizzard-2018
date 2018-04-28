@@ -32,7 +32,7 @@ public class LeftSide3CubeAuto extends CommandGroup {
 	    
 	    addSequential(new ShiftGears('l'));  //shift to low
 //	    addParallel(new DelayedCommand(0.3,new Command[]{new MoveElevator(3),new WaitCommand(0.2)}));
-	    addSequential(new Turn(43, 3));  //turn towards scale
+	    addSequential(new Turn(38, 3));  //turn towards scale
 	    addParallel(new MoveElevator(3));  //elevator to scale position
 	    addSequential(new WaitCommand(0.2));
 	    addSequential(new MoveIntake(0.4, 0.6)); //SCORE FIRST CUBE
@@ -53,7 +53,7 @@ public class LeftSide3CubeAuto extends CommandGroup {
 	    addSequential(new Turn(10, 5));  //turn towards scale
 	    addSequential(new ResetEnc());
 	    addParallel(new MoveElevator(3));  //elevator to scale position
-	    addParallel(new DelayedCommand(0.6, new MoveIntake(0.8, 0, 0.6)));
+	    addParallel(new DelayedCommand(0.8, new MoveIntake(0.8, 0, 0.6)));
 	    addSequential(new LowGearGyroArc(46000, 10));  //drive towards scale
 //	    addSequential(new MoveIntake(0.3, 0.6)); //SCORE SECOND CUBE
 //	    addSequential(new MoveIntake(0.6, 0, 0.6));
@@ -64,11 +64,11 @@ public class LeftSide3CubeAuto extends CommandGroup {
 //	    addParallel(new MoveElevator(0));  //elevator down
 //	    addSequential(new WaitCommand(0.5));
 	    addParallel(new PivotIntake('d'));
-	    addSequential(new Turn(129, 1));  //turn towards second switch cube
+	    addSequential(new Turn(126, 1));  //turn towards second switch cube
 	    
 	    addSequential(new ResetEnc());
 	    addParallel(new MoveIntake(-1,-1, 3));
-	    addSequential(new LowGearGyroDrive(27000, 129),1.7);  //move to second switch cube
+	    addSequential(new LowGearGyroDrive(27000, 126),1.7);  //move to second switch cube
 //	    addSequential(new LowGearGyroDrive(35000, 125, 25000));
 //	    addSequential(new LowGearGyroDrive(35000, 135));
 	    addSequential(new MoveIntake(-1,-1, 0.4));

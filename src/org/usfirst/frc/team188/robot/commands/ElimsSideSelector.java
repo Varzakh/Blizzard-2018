@@ -1,11 +1,7 @@
 package org.usfirst.frc.team188.robot.commands;
 
-import org.usfirst.frc.team188.robot.automodes.ErrorAuto;
-import org.usfirst.frc.team188.robot.automodes.LeftSideLeftScaleAuto;
-import org.usfirst.frc.team188.robot.automodes.LeftSideLeftSwitchAuto;
-import org.usfirst.frc.team188.robot.automodes.LeftSwitchAuto;
+import org.usfirst.frc.team188.robot.automodes.LeftSide3CubeAuto;
 import org.usfirst.frc.team188.robot.automodes.MobilityAuto;
-import org.usfirst.frc.team188.robot.automodes.RightSwitchAuto;
 
 import edu.wpi.first.wpilibj.DriverStation;
 import edu.wpi.first.wpilibj.command.Command;
@@ -14,20 +10,20 @@ import edu.wpi.first.wpilibj.command.CommandGroup;
 /**
  *
  */
-public class MultiSideSelector extends Command {
+public class ElimsSideSelector extends Command {
 	
-	CommandGroup switchAuto;
+	CommandGroup elimsAuto;
 
-    public MultiSideSelector() {
+    public ElimsSideSelector() {
     }
 
     protected void initialize() {
     	if(DriverStation.getInstance().getGameSpecificMessage().charAt(1) == 'L')
-    		switchAuto = new LeftSideLeftScaleAuto();
+    		elimsAuto = new LeftSide3CubeAuto();
 //    	else if(DriverStation.getInstance().getGameSpecificMessage().charAt(0) == 'L') 
 //    		switchAuto = new LeftSideLeftSwitchAuto();
-    	else switchAuto = new MobilityAuto();
-    	switchAuto.start();
+    	else elimsAuto = new MobilityAuto();
+    	elimsAuto.start();
     }
 
     protected void execute() {
@@ -38,8 +34,8 @@ public class MultiSideSelector extends Command {
     }
 
     protected void end() {
-    	if(switchAuto != null && !switchAuto.isCanceled())
-    		switchAuto.cancel();
+    	if(elimsAuto != null && !elimsAuto.isCanceled())
+    		elimsAuto.cancel();
     }
 
     protected void interrupted() {
