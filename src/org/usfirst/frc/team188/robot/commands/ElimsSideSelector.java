@@ -1,6 +1,7 @@
 package org.usfirst.frc.team188.robot.commands;
 
 import org.usfirst.frc.team188.robot.automodes.LeftSide3CubeAuto;
+import org.usfirst.frc.team188.robot.automodes.LeftSideLeftSwitchAuto;
 import org.usfirst.frc.team188.robot.automodes.MobilityAuto;
 
 import edu.wpi.first.wpilibj.DriverStation;
@@ -20,8 +21,8 @@ public class ElimsSideSelector extends Command {
     protected void initialize() {
     	if(DriverStation.getInstance().getGameSpecificMessage().charAt(1) == 'L')
     		elimsAuto = new LeftSide3CubeAuto();
-//    	else if(DriverStation.getInstance().getGameSpecificMessage().charAt(0) == 'L') 
-//    		switchAuto = new LeftSideLeftSwitchAuto();
+    	else if(DriverStation.getInstance().getGameSpecificMessage().charAt(0) == 'L') 
+    		elimsAuto = new LeftSideLeftSwitchAuto();
     	else elimsAuto = new MobilityAuto();
     	elimsAuto.start();
     }

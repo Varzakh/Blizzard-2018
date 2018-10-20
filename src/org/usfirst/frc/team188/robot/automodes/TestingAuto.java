@@ -1,5 +1,7 @@
 package org.usfirst.frc.team188.robot.automodes;
 
+import org.usfirst.frc.team188.robot.commands.TuneBaseEncPID;
+
 import edu.wpi.first.wpilibj.command.CommandGroup;
 
 /**
@@ -16,7 +18,9 @@ public class TestingAuto extends CommandGroup {
 //    	addSequential(new WaitCommand(1));
 //    	addSequential(new RampTurn(0));
     	
-    	addSequential(new LeftSide3CubeAuto());
+    	addSequential(new LeftSideLeftSwitchAuto());
+//    	addSequential(new TuneBaseEncPID());
+//    	addSequential(new LeftSide3CubeAuto());
     	
 //    	addParallel(new MoveElevator(1));  //elevator to scale position
 //	    addSequential(new WaitCommand(1.0));
